@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<include
+		resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	<include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+	<property name="logPath" value="data/Logs" />
+
+	<property name="historyCount" value="15" />
+	<appender name="app"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/app.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${backPath}/app/app.log.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{50} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<root level="INFO">
+		<appender-ref ref="app" />
+	</root>
+	<!-- notexists log -->
+	<appender name="notexists"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/HkNotExists.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${backPath}/HkNotExists/HkNotExists.log.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>${historyCount}</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{50} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<logger name="notexists" level="INFO" additivity="false">
+		<appender-ref ref="notexists" />
+	</logger>
+	<!-- jjs log -->
+	<appender name="jjs"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/hkJjs.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${backPath}/hkJjs/jjs.log.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>${historyCount}</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{50} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<logger name="371" level="INFO" additivity="false">
+		<appender-ref ref="jjs" />
+	</logger>
+	<!-- deal log -->
+	<appender name="deal"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/hkDeal.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${backPath}/hkDeal/deal.log.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>${historyCount}</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{50} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<logger name="330" level="INFO" additivity="false">
+		<appender-ref ref="deal" />
+	</logger>
+	<!-- min log -->
+	<appender name="min"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/hkMin.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${backPath}/hkMin/min.log.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>${historyCount}</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{50} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<logger name="321" level="INFO" additivity="false">
+		<appender-ref ref="min" />
+	</logger>
+	<!-- snap log -->
+	<appender name="snap"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/hkSnap.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${backPath}/hkSnap/snap.log.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>${historyCount}</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{50} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<logger name="300" level="INFO" additivity="false">
+		<appender-ref ref="snap" />
+	</logger>
+	<!-- ten log -->
+	<appender name="ten"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/hkTen.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${backPath}/hkTen/ten.log.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>${historyCount}</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{50} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<logger name="310" level="INFO" additivity="false">
+		<appender-ref ref="ten" />
+	</logger>
+
+	<!-- monitor log -->
+	<appender name="monitor"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/hkMonitor.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${backPath}/hkMonitor/monitor.log.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>${historyCount}</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{50} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<logger name="100" level="INFO" additivity="false">
+		<appender-ref ref="monitor" />
+	</logger>
+
+
+</configuration>
